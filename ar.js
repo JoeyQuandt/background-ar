@@ -1,4 +1,4 @@
-/*===Aframe Basketball tutorialk====
+/*===Aframe Basketball tutorialk====*/
 
 AFRAME.registerComponent("hide-in-ar-mode", {
 	// Set this object invisible while in AR mode.
@@ -20,4 +20,4 @@ AFRAME.registerComponent("occlusion-material", {
 	update: function () {
 		this.el.components.material.material.colorWrite = false;
 	},
-}); */
+}); 
