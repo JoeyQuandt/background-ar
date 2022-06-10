@@ -32,15 +32,19 @@ AFRAME.registerComponent('hit-handler', {
             switch (evt.target.getAttribute("id")) {
                 case "targetM":
                     this.updateScore(50);
+                    this.playSound();
                     break;
                 case "targetL":
                     this.updateScore(10);
+                    this.playSound();
                     break;
                 case "targetR":
                     this.updateScore(10);
+                    this.playSound();
                     break;
                 default:
                     this.updateScore(5);
+                    this.playSound();
                     break;
             }
         });
@@ -52,11 +56,19 @@ AFRAME.registerComponent('hit-handler', {
     },
     updateScore: function(value) {
         score += value;
+        this.playSound();
     },
     tick: function() {
         // Values update on update cycle;
         var scoreEl = document.querySelector('#scoreBoard');
         scoreEl.setAttribute('value', score);
+    },
+    playSound: function() {
+        // This is a generic way of playing sound in html5. 
+        // I was having trouble with A-Frame sound by the time of this demo.
+        var hitEl = document.querySelector('#hit');
+        hitEl.pause();
+        hitEl.play();
     }
 
 });

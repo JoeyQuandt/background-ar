@@ -14,99 +14,70 @@
 </head>
 
 <body>
-        <a-scene>
-            <!--<a-sound src="assets/sounds/theme.mp3" autoplay="true" loop="true" volume="0.3"></a-sound>-->
+        <a-scene loading-screen="dotsColor: yellow; backgroundColor: black">
+            <!--<a-sound src="assets/sounds/theme.mp3" autoplay="true" loop="true" volume="0.5"></a-sound>-->
             <a-assets>
                 <img id="sky" src="assets/space.jpg">
                 <img id="floor" src="assets/floor.png">
                 <img id="floorNorm" src="assets/floor-norm.png">
                 <img id="targetBoard" src="assets/target.png">
                 <audio id="shot" src="assets/sounds/laser.mp3" response-type="arraybuffer" preload="auto" volume="0.2"></audio>
+                <audio id="hit" src="assets/sounds/hit.mp3" response-type="arraybuffer" preload="auto" volume="0.2"></audio>
             </a-assets>
             <a-sky src="#sky" radius="40" repeat="6 4"></a-sky>
+            <!--Score-->
+   
             <a-text id="scoreBoard" position="0 8 -10" value="0" align="center" scale="3 3 1" color="white"></a-text>
-            <!-- Front Targets -->
-            <a-entity class="target" id="targetC" target geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="0 1.5 -9" rotation="90 0 0" hit-handler>
-                <!-- the relative cylinder just for decoration purpose -->
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
-            </a-entity>
 
-            <!--This is a moving / animating primitives : higher reward points -->
-            <a-entity class="target" id="targetL" target="static:false;" geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="5 1 -10" rotation="90 0 0" hit-handler animation="property: scale; from:1 1 1; to:0.5 0.5 0.5; dur: 500; easing: linear; loop: true; dir: alternate;">
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
-            </a-entity>
-
-            <a-entity class="target" id="targetR" target="static:false;" geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="-5 1 -10" rotation="90 0 0" hit-handler animation="property: scale; from:1 1 1; to:0.5 0.5 0.5; dur: 500; easing: linear; loop: true; dir: alternate;">
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
-            </a-entity>
-            <a-entity class="target" id="targetM" target="static:false;" geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="-5 1.5 -12" rotation="90 0 0" hit-handler animation="property: position; from:-5 6 -12; to:5 6 -12; dur: 3000; easing: linear; loop: true; dir: alternate;">
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="yellow" scale="0.6 0.62 0.6"></a-cylinder>
-            </a-entity>
-
-            <!----->
-
-            <a-entity class="target" id="targetC" target geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="-9 1.5 0" rotation="0 0 90" hit-handler>
-                <!-- the relative cylinder just for decoration purpose -->
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
-            </a-entity>
-
-            <!--This is a moving / animating primitives : higher reward points -->
-            <a-entity class="target" id="targetL" target="static:false;" geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="-10 1 5" rotation="0 0 90" hit-handler animation="property: scale; from:1 1 1; to:0.5 0.5 0.5; dur: 500; easing: linear; loop: true; dir: alternate;">
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
-            </a-entity>
-
-            <a-entity class="target" id="targetR" target="static:false;" geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="-5 1 -10" rotation="90 0 0" hit-handler animation="property: scale; from:1 1 1; to:0.5 0.5 0.5; dur: 500; easing: linear; loop: true; dir: alternate;">
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
-            </a-entity>
-            <a-entity class="target" id="targetM" target="static:false;" geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="-5 1.5 -12" rotation="90 0 0" hit-handler animation="property: position; from:-5 6 -12; to:5 6 -12; dur: 3000; easing: linear; loop: true; dir: alternate;">
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="yellow" scale="0.6 0.62 0.6"></a-cylinder>
+            <!--Targets-->
+            <a-entity class="target" id="targetC" target geometry="primitive: box; width:0; height:0; depth:0;" position="0 2 -9" hit-handler>
+                <a-image width="2.5" height="4" src="assets/darthvader.png"></a-image>
             </a-entity>
 
 
-
-
-            <!--Behind-->
-            <a-entity class="target" id="targetC" target geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="0 1.5 9" rotation="90 0 0" hit-handler>
-                <!-- the relative cylinder just for decoration purpose -->
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
+            <a-entity class="target" id="targetL" target geometry="primitve: box; width:0; height:0; depth:0;"position="5 1.5 -10" hit-handler>
+                <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
 
-            <!--This is a moving / animating primitives : higher reward points -->
-            <a-entity class="target" id="targetL" target="static:false;" geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="5 1 10" rotation="90 0 0" hit-handler animation="property: scale; from:1 1 1; to:0.5 0.5 0.5; dur: 500; easing: linear; loop: true; dir: alternate;">
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
+
+            <a-entity class="target" id="targetL" target geometry="primitve: box; width:0; height:0; depth:0;"position="-5 1.5 -10" hit-handler>
+                <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
 
-            <a-entity class="target" id="targetR" target="static:false;" geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="-5 1 10" rotation="90 0 0" hit-handler animation="property: scale; from:1 1 1; to:0.5 0.5 0.5; dur: 500; easing: linear; loop: true; dir: alternate;">
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
+            <a-entity class="target" id="targetR" target geometry="primitive: box; width:0; height:0; depth:0;" position="1 1.5 7" hit-handler>
+                <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
-            <a-entity class="target" id="targetM" target="static:false;" geometry="primitive: cylinder; width:4; height:0.2; depth:2;" material="color:red" position="-5 1.5 12" rotation="90 0 0" hit-handler animation="property: position; from:-5 6 -12; to:5 6 -12; dur: 3000; easing: linear; loop: true; dir: alternate;">
-                <a-cylinder color="orange" scale="0.8 0.6 0.8"></a-cylinder>
-                <a-cylinder color="red" scale="0.6 0.62 0.6"></a-cylinder>
+
+            <a-entity class="target" id="targetR" target geometry="primitive: box; width:0; height:0; depth:0;" position="1 1.5 -7" hit-handler>
+                <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
-            <!---->
+
+            <a-entity class="target" id="targetR" target geometry="primitive: box; width:0; height:0; depth:0;" position="-5 1.5 7" hit-handler>
+                <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
+            </a-entity>
 
 
+            <a-entity class="target" id="targetR" target geometry="primitive: box; width:0; height:0; depth:0;" position="5 1.5 7" hit-handler>
+                <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
+            </a-entity>
+            
+  
 
+
+            <!--Moving Target -->
+            <a-entity class="target" id="targetM" target="static:false;" geometry="primitive: box; width:0; height:0; depth:0;" position="-5 1.5 20" hit-handler animation="property: position; from:-5 6 -12; to:5 6 -12; dur: 3000; easing: linear; loop: true; dir: alternate;">
+                <a-image width="2" height="3.5" src="assets/bobafett.png"></a-image>
+            </a-entity>
+
+
+            <!--Laser-->
             <a-entity id="bulletTemplate" bullet="speed: 25.0; poolSize: 12; " geometry="primitive: sphere; radius: 0.05" material="color: green"></a-entity>
 
-            <a-entity id="rig">
-                <!-- Camera based shooter is an option for desktop players, however more work is needed for gun like CS, which always shoot based on cross hair -->
-                <!-- <a-camera position="0 1.5 0" shooter click-to-shoot wasd-controls-enabled="false"></a-camera> -->
-                <a-camera position="0 1.5 0" shooter click-to-shoot wasd-controls-enabled="false"></a-camera>
 
-                <!-- Meta's touch controller are invisible until you pop into VR with the real controller or use WebXR API simulator plugin on chrome -->
-                <!-- NOTE : You can turn off one controller too -->
+
+            <!--Camera Control-->
+            <a-entity id="rig">
+                <a-camera position="0 1.5 0" shooter click-to-shoot wasd-controls-enabled="false"></a-camera>
             </a-entity>
             <a-plane color="#ffffff" src="#floor" position="0 -0.1 0 " visible="true " repeat="50 50" rotation="-90 0 0 " width="85 " height="85 " depth="1 "></a-plane>
         </a-scene>
