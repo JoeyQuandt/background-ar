@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'starwars', sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -8,14 +8,8 @@ body {
     font-weight: bold;
 }
 
-#container {
-    margin: auto;
-    margin-top: 1em;
-    width: 80%;
-    height: 80vh;
-}
-
-a:visited,
-a:link {
-    color: #ef2d5e;
-}
+@font-face {
+    font-family: starwars;
+    src: url("assets/starwars.ttf");
+  }
+  
