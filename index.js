@@ -72,3 +72,24 @@ AFRAME.registerComponent('hit-handler', {
     }
 
 });
+
+AFRAME.registerComponent('resize-text', {
+    
+    init: function() {
+      
+      var self = this;
+      
+      window.addEventListener('resize', function(e) {
+        
+        var height = window.innerHeight;
+        var width = window.innerWidth;
+        
+        // console.log('resized!', height, width);
+        
+        self.el.setAttribute('width', ( width / 100 ));
+        
+      });
+      
+    }
+    
+});

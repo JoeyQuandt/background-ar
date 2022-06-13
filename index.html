@@ -22,12 +22,10 @@
                 <img id="floorNorm" src="assets/floor-norm.png">
                 <img id="targetBoard" src="assets/target.png">
                 <audio id="shot" src="assets/sounds/laser.mp3" response-type="arraybuffer" preload="auto" volume="0.2"></audio>
-                <audio id="hit" src="assets/sounds/hit.mp3" response-type="arraybuffer" preload="auto" volume="0.2"></audio>
             </a-assets>
             <a-sky src="#sky" radius="40" repeat="6 4"></a-sky>
             <!--Score-->
-   
-            <a-text id="scoreBoard" position="0 8 -10" value="0" align="center" scale="3 3 1" color="white"></a-text>
+
 
             <!--Targets-->
             <a-entity class="target" id="targetC" target geometry="primitive: box; width:0; height:0; depth:0;" position="0 2 -9" hit-handler>
@@ -77,7 +75,9 @@
 
             <!--Camera Control-->
             <a-entity id="rig">
-                <a-camera position="0 1.5 0" shooter click-to-shoot wasd-controls-enabled="false"></a-camera>
+                <a-camera position="0 1.5 0" shooter click-to-shoot wasd-controls-enabled="false">
+                    <a-text id="scoreBoard" position="0 8 -10" value="0" align="center" scale="3 3 1" color="white"></a-text>
+                </a-camera>
             </a-entity>
             <a-plane color="#ffffff" src="#floor" position="0 -0.1 0 " visible="true " repeat="50 50" rotation="-90 0 0 " width="85 " height="85 " depth="1 "></a-plane>
         </a-scene>
