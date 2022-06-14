@@ -77,6 +77,7 @@ AFRAME.registerComponent('hit-handler', {
     }
 });
 
+/*Timer*/
 var count = 42;
 var interval = setInterval(function(){
   test = document.getElementById('count');
