@@ -15,7 +15,7 @@
 
 <body>
         <a-scene loading-screen="dotsColor: yellow; backgroundColor: black">
-            <a-sound src="assets/sounds/theme.mp3" autoplay="true" loop="true" volume="0.5"></a-sound>
+            <!--<a-sound src="assets/sounds/theme.mp3" autoplay="true" loop="true" volume="0.5"></a-sound>-->
             <a-assets>
                 <img id="sky" src="assets/space.jpg">
                 <img id="floor" src="assets/floor.png">
@@ -28,34 +28,34 @@
 
 
             <!--Targets-->
-            <a-entity class="target" id="targetC" target geometry="primitive: box; width:0; height:0; depth:0;" position="0 2 -9" hit-handler>
+            <a-entity class="target" id="targetC" target geometry="primitve: box; width:2; height:4; depth:0;" material="opacity: 0.0; transparent: true" position="0 2 -9" hit-handler>
                 <a-image width="2.5" height="4" src="assets/darthvader.png"></a-image>
             </a-entity>
 
 
-            <a-entity class="target" id="targetL" target geometry="primitve: box; width:0; height:0; depth:0;"position="5 1.5 -10" hit-handler>
+            <a-entity class="target" id="targetL" target geometry="primitve: box; width:1.5; height:3.5; depth:0;" material="opacity: 0.0; transparent: true" position="5 1.5 -10" hit-handler>
                 <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
 
 
-            <a-entity class="target" id="targetL" target geometry="primitve: box; width:0; height:0; depth:0;"position="-5 1.5 -10" hit-handler>
+            <a-entity class="target" id="targetL" target geometry="primitve: box; width:1.5; height:3.5; depth:0;" material="opacity: 0.0; transparent: true" position="-5 1.5 -10" hit-handler>
                 <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
 
-            <a-entity class="target" id="targetR" target geometry="primitive: box; width:0; height:0; depth:0;" position="1 1.5 7" hit-handler>
+            <a-entity class="target" id="targetR" target geometry="primitive: box; width:1.5; height:3.5; depth:0;" material="opacity: 0.0; transparent: true" position="1 1.5 7" hit-handler>
                 <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
 
-            <a-entity class="target" id="targetR" target geometry="primitive: box; width:0; height:0; depth:0;" position="1 1.5 -7" hit-handler>
+            <a-entity class="target" id="targetR" target geometry="primitive: box; width:1.5; height:3.5; depth:0;" material="opacity: 0.0; transparent: true" position="1 1.5 -7" hit-handler>
                 <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
 
-            <a-entity class="target" id="targetR" target geometry="primitive: box; width:0; height:0; depth:0;" position="-5 1.5 7" hit-handler>
+            <a-entity class="target" id="targetR" target geometry="primitive: box; width:1.5; height:3.5; depth:0;" material="opacity: 0.0; transparent: true" position="-5 1.5 7" hit-handler>
                 <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
 
 
-            <a-entity class="target" id="targetR" target geometry="primitive: box; width:0; height:0; depth:0;" position="5 1.5 7" hit-handler>
+            <a-entity class="target" id="targetR" target geometry="primitive: box; width:1.5; height:3.5; depth:0;" material="opacity: 0.0; transparent: true" position="5 1.5 7" hit-handler>
                 <a-image width="2" height="3.5" src="assets/stormtrooper.png"></a-image>
             </a-entity>
             
@@ -76,9 +76,13 @@
             <!--Camera Control-->
             <a-entity id="rig">
                 <a-camera position="0 1.5 0" shooter click-to-shoot wasd-controls-enabled="false">
-                    <a-text id="scoreBoard" position="0 8 -10" value="0" align="center" scale="3 3 1" color="white"></a-text>
+                    <a-text position="0 8 -10" value="Score:" align="center" scale="3 3 1" color="white"></a-text>
+                    <a-text id="scoreBoard" position="0 8 -11" value="value" align="center" scale="3 3 1" color="white"></a-text>
+                    <a-text position="0 8 -12" value="Time Remaining:" align="center" scale="3 3 1" color="white"></a-text>
+                    <a-text id="count" position="0 8 -13" value="0" align="center" scale="3 3 1" color="white"></a-text>
                 </a-camera>
             </a-entity>
+            <!--Floor Asset-->
             <a-plane color="#ffffff" src="#floor" position="0 -0.1 0 " visible="true " repeat="50 50" rotation="-90 0 0 " width="85 " height="85 " depth="1 "></a-plane>
         </a-scene>
     <script src="index.js"></script>

@@ -1,9 +1,11 @@
 var score = 0;
+var count = 15;
 AFRAME.registerComponent('click-to-shoot', {
     init: function() {
         document.body.addEventListener('mousedown', () => {
             this.el.emit('shoot');
             this.playSound();
+            this.startTimer();
         });
         document.body.addEventListener('triggerdown', (evt) => {
             console.log("Evt", evt);
@@ -24,6 +26,8 @@ AFRAME.registerComponent('click-to-shoot', {
 /**
  * When hit.
  */
+
+
 AFRAME.registerComponent('hit-handler', {
     init: function() {
         var el = this.el;
@@ -62,6 +66,7 @@ AFRAME.registerComponent('hit-handler', {
         // Values update on update cycle;
         var scoreEl = document.querySelector('#scoreBoard');
         scoreEl.setAttribute('value', score);
+
     },
     playSound: function() {
         // This is a generic way of playing sound in html5. 
@@ -70,26 +75,17 @@ AFRAME.registerComponent('hit-handler', {
         hitEl.pause();
         hitEl.play();
     }
-
 });
 
-AFRAME.registerComponent('resize-text', {
-    
-    init: function() {
-      
-      var self = this;
-      
-      window.addEventListener('resize', function(e) {
-        
-        var height = window.innerHeight;
-        var width = window.innerWidth;
-        
-        // console.log('resized!', height, width);
-        
-        self.el.setAttribute('width', ( width / 100 ));
-        
-      });
-      
-    }
-    
-});
+var count = 42;
+var interval = setInterval(function(){
+  test = document.getElementById('count');
+  test.setAttribute('value',count)
+  count--;
+  if (count === 0){
+    clearInterval(interval);
+    document.getElementById('count').innerHTML='Done';
+    alert("You're out of time!"+ "Score:"+score);
+    location.reload();
+  }
+}, 1000);
