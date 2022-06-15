@@ -17,8 +17,8 @@ AFRAME.registerComponent('click-to-shoot', {
         // This is a generic way of playing sound in html5. 
         // I was having trouble with A-Frame sound by the time of this demo.
         var sceneEl = document.querySelector('#shot');
-        sceneEl.pause();
-        sceneEl.play();
+       sceneEl.pause();
+       sceneEl.play();
     }
 });
 
@@ -30,7 +30,6 @@ AFRAME.registerComponent('click-to-shoot', {
 AFRAME.registerComponent('hit-handler', {
     init: function() {
         var el = this.el;
-        var removeTarget = document.querySelector("#darthvader")
         el.addEventListener('hit', (evt) => {
             console.log("hit on target id ---> : ", evt.target.getAttribute("id"));
             switch (evt.target.getAttribute("id")) {
@@ -39,15 +38,21 @@ AFRAME.registerComponent('hit-handler', {
                     this.playSound();
                     break;
                 case "darthvader":
+                    evt.target.visible = false;
+                    evt.target.parentNode.removeChild(evt.target);
+
                     this.updateScore(5);
-                    this.playSound();
-                    removeTarget.removeAttribute('hit-handler');
                     break;
                 case "boba-fett":
+                    evt.target.visible = false;
+                    evt.target.parentNode.removeChild(evt.target);
+                
                     this.updateScore(25);
                     this.playSound();
                     break;
                 default:
+                    evt.target.visible = false;
+                    evt.target.parentNode.removeChild(evt.target);
                     this.updateScore(1);
                     this.playSound();
                     break;
@@ -61,7 +66,7 @@ AFRAME.registerComponent('hit-handler', {
     },
     updateScore: function(value) {
         score += value;
-        this.playSound();
+        // this.playSound();
     },
     tick: function() {
         // Values update on update cycle;

@@ -29,9 +29,8 @@
             </a-entity>
             <!--Easy targets-->
             <a-entity class="target" id="darthvader" target="static:false;" geometry="primitve: box; width:2; height:4; depth:2;" material="opacity: 0" position="0 2 -20" hit-handler>
-                <a-image width="2.5" height="4" src="assets/darthvader.png"></a-image>
+                <a-image class="image" width="2.5" height="4" src="assets/darthvader.png"></a-image>
             </a-entity>
-
             <a-entity class="target" id="stormtrooper" target="static:false;" geometry="primitve: box; width:2; height:4; depth:2;" material="opacity: 0" position="3 1.5 -15" hit-handler>
                 <a-image width="2.5" height="4" src="assets/stormtrooper.png"></a-image>
             </a-entity>
@@ -47,35 +46,14 @@
             <a-entity class="target" id="stormtrooper" target="static:false;" geometry="primitve: box; width:2; height:4; depth:2;" material="opacity: 0" position="-7 1.5 -15" hit-handler>
                 <a-image width="2.5" height="4" src="assets/stormtrooper.png"></a-image>
             </a-entity>
-
             <a-entity class="target" id="stormtrooper" target="static:false;" geometry="primitve: box; width:2; height:4; depth:2;" material="opacity: 0" position="-1 1.5 -15" hit-handler>
                 <a-image width="2.5" height="4" src="assets/stormtrooper.png"></a-image>
             </a-entity>
-
-            <a-entity class="target" id="at-st" target="static:false;" geometry="primitve: box; width:2; height:4; depth:2;" material="opacity: 0" position="15 4.5 -15"  hit-handler>
-                <a-image width="5" height="10" src="assets/at-st.png"></a-image>
-            </a-entity>
-
-            <a-entity class="target" id="at-st" target="static:false;" geometry="primitve: box; width:2; height:4; depth:2;" material="opacity: 0" position="-15 4.5 -15" hit-handler>
-                <a-image width="5" height="10" src="assets/at-st.png"></a-image>
-            </a-entity>
-
-
-
-            <!--Moving Target -->
-            <!--Boba Fett-->
             <a-entity class="target" id="boba-fett" target="static:false;" geometry="primitive: box; width:2; height:3; depth:2;" material="opacity: 0.0; transparent: true" position="-5 1.5 20" hit-handler animation="property: position; from:-5 6 -12; to:5 6 -12; dur: 3000; easing: linear; loop: true; dir: alternate;">
                 <a-image width="2" height="3.5" src="assets/bobafett.png"></a-image>
             </a-entity>
 
-
-
-
-            <!--Laser-->
             <a-entity id="bulletTemplate" bullet="speed: 25.0; poolSize: 12; " geometry="primitive: sphere; radius: 0.05" material="color: green"></a-entity>
-
-
-
             <!--Camera Control-->
             <a-entity id="rig">
                 <a-camera position="0 1.5 0" shooter click-to-shoot wasd-controls-enabled="false" look-controls="reverseMouseDrag:true; touchEnabled: false">
