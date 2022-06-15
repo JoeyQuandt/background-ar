@@ -5,7 +5,6 @@ AFRAME.registerComponent('click-to-shoot', {
         document.body.addEventListener('mousedown', () => {
             this.el.emit('shoot');
             this.playSound();
-            this.startTimer();
         });
         document.body.addEventListener('triggerdown', (evt) => {
             console.log("Evt", evt);
@@ -31,23 +30,25 @@ AFRAME.registerComponent('click-to-shoot', {
 AFRAME.registerComponent('hit-handler', {
     init: function() {
         var el = this.el;
+        var removeTarget = document.querySelector("#darthvader")
         el.addEventListener('hit', (evt) => {
-            // console.log("hit on target id ---> : ", evt.target.getAttribute("id"));
+            console.log("hit on target id ---> : ", evt.target.getAttribute("id"));
             switch (evt.target.getAttribute("id")) {
-                case "targetM":
-                    this.updateScore(50);
+                case "at-st":
+                    this.updateScore(5);
                     this.playSound();
                     break;
-                case "targetL":
-                    this.updateScore(10);
+                case "darthvader":
+                    this.updateScore(5);
                     this.playSound();
+                    removeTarget.removeAttribute('hit-handler');
                     break;
-                case "targetR":
-                    this.updateScore(10);
+                case "boba-fett":
+                    this.updateScore(25);
                     this.playSound();
                     break;
                 default:
-                    this.updateScore(5);
+                    this.updateScore(1);
                     this.playSound();
                     break;
             }
