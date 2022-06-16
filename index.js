@@ -83,7 +83,7 @@ AFRAME.registerComponent('hit-handler', {
     }
 });
 
-var count = 32;
+var count = 42;
 var interval = setInterval(function(){
   test = document.getElementById('count');
   test.setAttribute('value',count)
