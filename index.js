@@ -83,8 +83,7 @@ AFRAME.registerComponent('hit-handler', {
     }
 });
 
-/*Timer*/
-var count = 42;
+var count = 32;
 var interval = setInterval(function(){
   test = document.getElementById('count');
   test.setAttribute('value',count)
@@ -93,6 +92,6 @@ var interval = setInterval(function(){
     clearInterval(interval);
     document.getElementById('count').innerHTML='Done';
     alert("You're out of time!"+ "Score:"+score);
-    location.reload();
+    window.location.href="../index.html"
   }
 }, 1000);

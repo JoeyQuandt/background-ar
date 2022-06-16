@@ -1,18 +1,81 @@
-body {
-    font-family: 'starwars', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #333;
-    color: white;
-    font-weight: bold;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Karla:wght@400;600;700&family=Poppins:wght@400;700&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
 }
 
-@font-face {
-    font-family: starwars;
-    src: url("assets/starwars.ttf");
-  }
-  
-.a-loader-title {
-    color: red;
-  }
+html{
+  background-image: url("./images/starwars.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 185vh;
+}
+
+
+
+header{
+  margin: auto;
+  width: 90%;
+  padding-block: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.highlight{
+  color: #00D8FF;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+}
+
+main{
+  margin: auto;
+  width: 90%;
+}
+
+.button{
+  cursor: pointer;
+  color: #1C377E;
+  text-decoration: none;
+  background: white;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  padding: 30px 50px;
+}
+
+.button:hover{
+  transform: all 0.3s ease;
+  color: white;
+  background: #1C377E;
+}
+
+.instructions{
+  color: #1C377E;
+  margin: auto;
+  width: 90%;
+  padding: 30px 10px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.instructions>h1{
+  padding-block: 2rem;
+}
